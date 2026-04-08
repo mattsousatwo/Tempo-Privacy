@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tempo — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0e0c14;
+      --surface:   #16131f;
+      --border:    rgba(255,255,255,0.07);
+      --accent:    #7c5cfc;
+      --accent2:   #4db8ff;
+      --text:      #e8e4f0;
+      --muted:     #7a7490;
+      --mono:      'DM Mono', monospace;
+      --sans:      'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Grain overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Glow blob ── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(124,92,252,0.18) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 56px;
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px 14px;
+      margin-bottom: 32px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .app-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+
+    h1 {
+      font-family: var(--sans);
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-size: 11px;
+      font-family: var(--mono);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #b8b2cc;
+      margin-bottom: 16px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Highlight card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin: 24px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.5;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* ── Data table ── */
+    .data-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-row:last-child { border-bottom: none; }
+
+    .data-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(124,92,252,0.12);
+      border: 1px solid rgba(124,92,252,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .data-label {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .data-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Tag ── */
+    .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(77,184,255,0.1);
+      color: var(--accent2);
+      border: 1px solid rgba(77,184,255,0.2);
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── Contact ── */
+    .contact-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 13px;
+      border-bottom: 1px solid rgba(124,92,252,0.3);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent2);
+      border-color: var(--accent2);
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      gap: 12px;
+    }
+
+    .footer-left {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-right {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="app-badge">
+      <span class="dot"></span>
+      Tempo for macOS
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">Last updated: April 2026</p>
+  </header>
+
+  <!-- Overview -->
+  <section>
+    <h2>Overview</h2>
+    <div class="card">
+      <p>Tempo does not collect, transmit, or share any personal data. Everything the app stores stays entirely on your device.</p>
+    </div>
+    <p>This policy explains what data Tempo stores locally and how it is used. There are no analytics, no tracking, no servers, and no third-party SDKs that receive your information.</p>
+  </section>
+
+  <!-- Data stored locally -->
+  <section>
+    <h2>Data Stored on Your Device</h2>
+    <p>Tempo stores the following data locally using macOS system storage (UserDefaults). This data never leaves your Mac.</p>
+
+    <div class="data-row">
+      <div class="data-icon">⚙️</div>
+      <div>
+        <div class="data-label">Settings & Preferences</div>
+        <div class="data-desc">Timer durations, session names, colors, icons, sounds, and display options you configure in the app.</div>
+      </div>
+    </div>
+
+    <div class="data-row">
+      <div class="data-icon">📋</div>
+      <div>
+        <div class="data-label">Tasks</div>
+        <div class="data-desc">Task names, notes, due dates, and completion status that you enter in the task list.</div>
+      </div>
+    </div>
+
+    <div class="data-row">
+      <div class="data-icon">📊</div>
+      <div>
+        <div class="data-label">Session History</div>
+        <div class="data-desc">A local log of completed focus and break sessions, used to calculate streaks and daily progress. Capped at 100 records.</div>
+      </div>
+    </div>
+
+    <div class="data-row">
+      <div class="data-icon">🎮</div>
+      <div>
+        <div class="data-label">Game Stats</div>
+        <div class="data-desc">Win/loss counts and high scores for the built-in mini-games (2048, Minesweeper, Tic Tac Toe, Memory, Theseus, Nonogram).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we don't collect -->
+  <section>
+    <h2>What We Don't Collect</h2>
+    <p>Tempo never accesses or collects:</p>
+
+    <div class="data-row">
+      <div class="data-icon">🚫</div>
+      <div>
+        <div class="data-label">No personal information <span class="tag">never</span></div>
+        <div class="data-desc">No name, email, Apple ID, or account of any kind is required or collected.</div>
+      </div>
+    </div>
+
+    <div class="data-row">
+      <div class="data-icon">🚫</div>
+      <div>
+        <div class="data-label">No usage analytics <span class="tag">never</span></div>
+        <div class="data-desc">No analytics SDK, crash reporter, or usage tracking is included in the app.</div>
+      </div>
+    </div>
+
+    <div class="data-row">
+      <div class="data-icon">🚫</div>
+      <div>
+        <div class="data-label">No network requests <span class="tag">never</span></div>
+        <div class="data-desc">Tempo makes no network connections. It functions entirely offline.</div>
+      </div>
+    </div>
+
+    <div class="data-row">
+      <div class="data-icon">🚫</div>
+      <div>
+        <div class="data-label">No third-party sharing <span class="tag">never</span></div>
+        <div class="data-desc">No data is shared with advertisers, partners, or any third party.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notifications -->
+  <section>
+    <h2>Notifications</h2>
+    <p>Tempo requests permission to send macOS notifications to alert you when a focus session or break ends. This permission is optional — the app is fully functional without it.</p>
+    <p>Notifications are generated locally on your device. No notification content is transmitted externally.</p>
+  </section>
+
+  <!-- Accessibility -->
+  <section>
+    <h2>Accessibility Permission</h2>
+    <p>The optional global keyboard shortcut (⌘⇧P) requires macOS Accessibility permission. This permission is used solely to listen for that key combination system-wide. Tempo does not read, record, or transmit any other keyboard input or screen content.</p>
+    <p>This permission is entirely optional. You can use Tempo without granting it.</p>
+  </section>
+
+  <!-- Data deletion -->
+  <section>
+    <h2>Deleting Your Data</h2>
+    <p>You can reset all session and game stats at any time from <strong>Settings → Stats → Reset All Stats</strong>.</p>
+    <p>Uninstalling Tempo removes all locally stored data from your Mac.</p>
+  </section>
+
+  <!-- Children -->
+  <section>
+    <h2>Children's Privacy</h2>
+    <p>Tempo does not collect any data from any user, including children. The app complies with COPPA and applicable children's privacy laws.</p>
+  </section>
+
+  <!-- Changes -->
+  <section>
+    <h2>Changes to This Policy</h2>
+    <p>If this privacy policy changes, the updated version will be posted at this URL with a revised date. Because no data is collected, changes are unlikely to affect your privacy in any material way.</p>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <h2>Contact</h2>
+    <p>Questions about this privacy policy? Reach out at:</p>
+    <p><a class="contact-link" href="mailto:support.tempoapp@gmail.com">support.tempoapp@gmail.com</a></p>
+  </section>
+
+  <footer>
+    <span class="footer-left">©
