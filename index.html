@@ -33,7 +33,6 @@
       padding: 0 24px 80px;
     }
 
-    /* ── Grain overlay ── */
     body::before {
       content: '';
       position: fixed;
@@ -43,7 +42,6 @@
       z-index: 0;
     }
 
-    /* ── Glow blob ── */
     body::after {
       content: '';
       position: fixed;
@@ -64,7 +62,6 @@
       margin: 0 auto;
     }
 
-    /* ── Header ── */
     header {
       padding: 72px 0 56px;
       border-bottom: 1px solid var(--border);
@@ -115,7 +112,6 @@
       font-family: var(--mono);
     }
 
-    /* ── Sections ── */
     section {
       margin-bottom: 48px;
       padding-bottom: 48px;
@@ -144,7 +140,6 @@
 
     p:last-child { margin-bottom: 0; }
 
-    /* ── Highlight card ── */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -169,7 +164,6 @@
       font-size: 14px;
     }
 
-    /* ── Data table ── */
     .data-row {
       display: flex;
       align-items: flex-start;
@@ -207,7 +201,6 @@
       line-height: 1.5;
     }
 
-    /* ── Tag ── */
     .tag {
       display: inline-block;
       font-family: var(--mono);
@@ -221,7 +214,6 @@
       vertical-align: middle;
     }
 
-    /* ── Contact ── */
     .contact-link {
       color: var(--accent);
       text-decoration: none;
@@ -236,7 +228,6 @@
       border-color: var(--accent2);
     }
 
-    /* ── Footer ── */
     footer {
       margin-top: 64px;
       padding-top: 32px;
@@ -244,7 +235,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: gap;
+      flex-wrap: wrap;
       gap: 12px;
     }
 
@@ -267,31 +258,31 @@
   <header>
     <div class="app-badge">
       <span class="dot"></span>
-      Tempo for macOS
+      Tempo for macOS &amp; iOS
     </div>
     <h1>Privacy Policy</h1>
-    <p class="subtitle">Last updated: April 2026</p>
+    <p class="subtitle">Last updated: May 2026</p>
   </header>
 
   <!-- Overview -->
   <section>
     <h2>Overview</h2>
     <div class="card">
-      <p>Tempo does not collect, transmit, or share any personal data. Everything the app stores stays entirely on your device.</p>
+      <p>Tempo does not collect, transmit, or share any personal data with us or any third party. All data stays on your devices and in your personal iCloud account.</p>
     </div>
-    <p>This policy explains what data Tempo stores locally and how it is used. There are no analytics, no tracking, no servers, and no third-party SDKs that receive your information.</p>
+    <p>This policy covers both Tempo for macOS and Tempo for iOS, including home screen widgets. There are no analytics, no tracking, no servers, and no third-party SDKs that receive your information.</p>
   </section>
 
   <!-- Data stored locally -->
   <section>
-    <h2>Data Stored on Your Device</h2>
-    <p>Tempo stores the following data locally using macOS system storage (UserDefaults). This data never leaves your Mac.</p>
+    <h2>Data Stored on Your Devices</h2>
+    <p>Tempo stores the following data locally on your Mac and iPhone using system storage (UserDefaults and App Group containers).</p>
 
     <div class="data-row">
       <div class="data-icon">⚙️</div>
       <div>
-        <div class="data-label">Settings & Preferences</div>
-        <div class="data-desc">Timer durations, session names, colors, icons, sounds, and display options you configure in the app.</div>
+        <div class="data-label">Settings &amp; Preferences</div>
+        <div class="data-desc">Timer durations, session names, colors, themes, icons, sounds, and display options you configure in the app.</div>
       </div>
     </div>
 
@@ -299,15 +290,15 @@
       <div class="data-icon">📋</div>
       <div>
         <div class="data-label">Tasks</div>
-        <div class="data-desc">Task names, notes, due dates, and completion status that you enter in the task list.</div>
+        <div class="data-desc">Task names, subtitles, rich-text notes, tags, due dates, and completion status that you enter in the task list.</div>
       </div>
     </div>
 
     <div class="data-row">
       <div class="data-icon">📊</div>
       <div>
-        <div class="data-label">Session History</div>
-        <div class="data-desc">A local log of completed focus and break sessions, used to calculate streaks and daily progress. Capped at 100 records.</div>
+        <div class="data-label">Session History &amp; Stats</div>
+        <div class="data-desc">A local log of completed focus and break sessions, task completion counts, and streak data used to display your statistics. Completed tasks are automatically removed after 60 days.</div>
       </div>
     </div>
 
@@ -315,9 +306,27 @@
       <div class="data-icon">🎮</div>
       <div>
         <div class="data-label">Game Stats</div>
-        <div class="data-desc">Win/loss counts and high scores for the built-in mini-games (2048, Minesweeper, Tic Tac Toe, Memory, Theseus, Nonogram).</div>
+        <div class="data-desc">Win/loss counts and high scores for the built-in mini-games (2048, Minesweeper, Tic Tac Toe, Memory, Theseus, Nonogram). macOS only.</div>
       </div>
     </div>
+  </section>
+
+  <!-- iCloud Sync -->
+  <section>
+    <h2>iCloud Sync</h2>
+    <p>Tempo uses Apple's iCloud Key-Value Storage (NSUbiquitousKeyValueStore) to sync your tasks, active task selection, completion statistics, and session stats between your Mac and iPhone.</p>
+    <div class="card">
+      <p>This data is stored in your personal iCloud account, managed entirely by Apple. Tempo does not operate any servers and has no access to your iCloud data outside of the app.</p>
+    </div>
+    <p>Synced data includes task content (titles, notes, tags, due dates), completion history, and focus session statistics. No personal identifiers are included in the synced data.</p>
+    <p>You can disable iCloud sync for Tempo in System Settings → Apple ID → iCloud → Apps Using iCloud.</p>
+  </section>
+
+  <!-- Widgets -->
+  <section>
+    <h2>Widgets</h2>
+    <p>Tempo offers home screen widgets on iOS that display your tasks, focus session stats, and completion history. Widget data is stored in a shared App Group container on your device so the widget extension can read it.</p>
+    <p>No widget data is transmitted externally. The widgets read the same local data that the main app writes.</p>
   </section>
 
   <!-- What we don't collect -->
@@ -344,8 +353,8 @@
     <div class="data-row">
       <div class="data-icon">🚫</div>
       <div>
-        <div class="data-label">No network requests <span class="tag">never</span></div>
-        <div class="data-desc">Tempo makes no network connections. It functions entirely offline.</div>
+        <div class="data-label">No external network requests <span class="tag">never</span></div>
+        <div class="data-desc">Tempo makes no network connections to our servers. The only network activity is iCloud sync handled by Apple's system frameworks.</div>
       </div>
     </div>
 
@@ -361,22 +370,24 @@
   <!-- Notifications -->
   <section>
     <h2>Notifications</h2>
-    <p>Tempo requests permission to send macOS notifications to alert you when a focus session or break ends. This permission is optional — the app is fully functional without it.</p>
-    <p>Notifications are generated locally on your device. No notification content is transmitted externally.</p>
+    <p>Tempo requests permission to send notifications on both macOS and iOS to alert you when a focus session or break ends, and to remind you of tasks with due dates.</p>
+    <p>This permission is optional — the app is fully functional without it. All notifications are generated locally on your device. No notification content is transmitted externally.</p>
   </section>
 
   <!-- Accessibility -->
   <section>
-    <h2>Accessibility Permission</h2>
-    <p>The optional global keyboard shortcut (⌘⇧P) requires macOS Accessibility permission. This permission is used solely to listen for that key combination system-wide. Tempo does not read, record, or transmit any other keyboard input or screen content.</p>
-    <p>This permission is entirely optional. You can use Tempo without granting it.</p>
+    <h2>Accessibility Permission (macOS)</h2>
+    <p>The optional global keyboard shortcut (⌘⇧T) requires macOS Accessibility permission. This permission is used solely to listen for that key combination system-wide. Tempo does not read, record, or transmit any other keyboard input or screen content.</p>
+    <p>This permission is entirely optional and applies to the macOS app only.</p>
   </section>
 
   <!-- Data deletion -->
   <section>
     <h2>Deleting Your Data</h2>
-    <p>You can reset all session and game stats at any time from <strong>Settings → Stats → Reset All Stats</strong>.</p>
-    <p>Uninstalling Tempo removes all locally stored data from your Mac.</p>
+    <p>On macOS, you can reset all session and game stats from <strong>Settings → Stats → Reset All Stats</strong>. You can clear all completed tasks from <strong>Settings → Clear Completed Tasks</strong>.</p>
+    <p>On iOS, you can clear completed tasks from <strong>Settings → Data → Clear All Completed</strong>.</p>
+    <p>Completed tasks are automatically removed after 60 days on both platforms. Aggregate completion statistics (daily counts) are preserved for up to one year for your historical records.</p>
+    <p>Uninstalling Tempo removes all locally stored data from your device. To remove synced data from iCloud, disable iCloud sync before uninstalling or manage your iCloud storage in System Settings.</p>
   </section>
 
   <!-- Children -->
@@ -388,15 +399,21 @@
   <!-- Changes -->
   <section>
     <h2>Changes to This Policy</h2>
-    <p>If this privacy policy changes, the updated version will be posted at this URL with a revised date. Because no data is collected, changes are unlikely to affect your privacy in any material way.</p>
+    <p>If this privacy policy changes, the updated version will be posted at this URL with a revised date. Because no personal data is collected, changes are unlikely to affect your privacy in any material way.</p>
   </section>
 
   <!-- Contact -->
   <section>
     <h2>Contact</h2>
     <p>Questions about this privacy policy? Reach out at:</p>
-    <p><span style="font-family: var(--mono); font-size: 13px; color: var(--accent);">support.tempoapp@gmail.com</span></p>
+    <p><a href="mailto:support.tempoapp@gmail.com" class="contact-link">support.tempoapp@gmail.com</a></p>
   </section>
 
   <footer>
-    <span class="footer-left">©
+    <span class="footer-left">© 2026 Tempo</span>
+    <span class="footer-right">macOS &amp; iOS</span>
+  </footer>
+
+</div>
+</body>
+</html>
